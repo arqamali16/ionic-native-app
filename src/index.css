@@ -1,0 +1,21 @@
+.header {
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	margin-bottom: 1.25em;
+	text-transform: uppercase;
+	/* background-color: #bae637 !important; */
+	margin-top: 20px;
+}
+
+.toolbar {
+	/* background-color: #bae637 !important; */
+}
+
+.ion-tab-bar {
+	bottom: 20px;
+	position: relative;
+	border-radius: 16px;
+	width: 92%;
+	margin: 0 auto;
+}

@@ -1,0 +1,7 @@
+{
+  "name": "shahada-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
