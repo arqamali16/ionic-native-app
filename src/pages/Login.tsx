@@ -1,20 +1,6 @@
-import {
-	IonContent,
-	IonPage,
-	IonButton,
-	IonText,
-	IonRow,
-	IonCol,
-	IonItemDivider,
-	IonLabel,
-	IonInput,
-	IonItem,
-	IonList,
-	IonAvatar,
-} from '@ionic/react';
+import { IonContent, IonPage, IonButton, IonRow, IonCol, IonLabel, IonInput, IonItem, IonList } from '@ionic/react';
 import React from 'react';
 import { Plugins } from '@capacitor/core';
-// import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
 import { Redirect } from 'react-router-dom';
 import ShahadaLogo from '../assets/shahada-logo.svg';
@@ -22,10 +8,6 @@ import ShahadaLogo from '../assets/shahada-logo.svg';
 const { Browser } = Plugins;
 
 const Login: any = ({ loggedIn, onLogin }: any) => {
-	const openWebView = async () => {
-		await Browser.open({ url: 'https://selfcare.uaepass.ae/auth/login', presentationStyle: 'popover' });
-	};
-
 	return loggedIn ? (
 		<Redirect to='/private/home' />
 	) : (
@@ -62,7 +44,7 @@ const Login: any = ({ loggedIn, onLogin }: any) => {
 				</IonRow>
 				<IonRow>
 					<IonCol>
-						<IonButton expand='block' fill='outline' onClick={openWebView}>
+						<IonButton expand='block' fill='outline'>
 							Login with UAE Pass
 						</IonButton>
 					</IonCol>
