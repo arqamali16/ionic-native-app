@@ -21,10 +21,17 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import './index.css'
+import './index.css';
 
+import { resetContext, getContext } from 'kea'; // 👈 add this
+import { Provider } from 'react-redux'; // 👈 add this
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+	<Provider store={getContext().store}>
+		<App />
+	</Provider>,
+	document.getElementById('root'),
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -17,13 +17,17 @@
 		"cordova-plugin-inappbrowser": "^4.1.0",
 		"cordova-plugin-ionic-webview": "^5.0.0",
 		"ionicons": "^5.0.0",
+		"kea": "^2.3.2",
 		"lodash": "^4.17.21",
 		"react": "^16.13.0",
 		"react-dom": "^16.13.0",
 		"react-native-check-app-install": "0.0.5",
+		"react-redux": "^7.2.2",
 		"react-router": "^5.1.2",
 		"react-router-dom": "^5.1.2",
 		"react-scripts": "3.4.0",
+		"redux": "^4.0.5",
+		"reselect": "^4.0.0",
 		"typescript": "3.8.3"
 	},
 	"scripts": {
@@ -61,6 +65,7 @@
 		"@types/node": "^12.12.24",
 		"@types/react": "^16.9.17",
 		"@types/react-dom": "^16.9.4",
+		"@types/react-redux": "^7.1.16",
 		"@types/react-router": "^5.1.4",
 		"@types/react-router-dom": "^5.1.3"
 	},

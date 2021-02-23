@@ -1,6 +1,9 @@
-import React from 'react';
 import _ from 'lodash';
 import axios from 'axios';
+
+import { Plugins } from '@capacitor/core';
+
+const { Storage } = Plugins;
 
 const environment = {
 	baseUrl: '',
@@ -8,17 +11,12 @@ const environment = {
 
 environment.baseUrl = 'https://investabook-server.herokuapp.com/';
 
-/**
- * @function getToken function to get the token from local storage
- */
-export const getHeaders = () => {
-	return { 'x-access-token': localStorage.getItem('token') };
-};
+const getToken = async () => await Storage.get({ key: 'token' });
 
 export default axios.create({
 	baseURL: environment.baseUrl,
 	responseType: 'json',
 	headers: {
-		'x-access-token': null,
+		'x-access-token': getToken(),
 	},
 });
