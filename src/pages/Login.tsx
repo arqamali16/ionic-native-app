@@ -8,14 +8,15 @@ import ShahadaLogo from '../assets/shahada-logo.svg';
 import LoginForm from '../../src/components/LoginForm';
 
 import LoginLogic from '../../src/Logics/Login';
-import { useActions } from 'kea';
+import { useActions, useValues } from 'kea';
 
 const { Browser } = Plugins;
 
-const Login: any = ({ loggedIn, onLogin }: any) => {
+const Login: any = () => {
 	const { login } = useActions(LoginLogic);
+	const { isLoggedIn } = useValues(LoginLogic);
 
-	return loggedIn ? (
+	return isLoggedIn ? (
 		<Redirect to='/private/home' />
 	) : (
 		<IonPage style={{ backgroundColor: '#bae637' }}>
@@ -28,7 +29,7 @@ const Login: any = ({ loggedIn, onLogin }: any) => {
 					</IonCol>
 				</IonRow>
 
-				<LoginForm onSubmit={login} />
+				<LoginForm onSubmit={(details: any) => login(details)} />
 			</IonContent>
 		</IonPage>
 	);

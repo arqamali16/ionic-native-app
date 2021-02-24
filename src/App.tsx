@@ -5,18 +5,18 @@ import { IonRouterOutlet, IonApp } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import AppTab from './AppTabs';
 import Login from './pages/Login';
+import { getToken } from '../src/Api';
 
 const App: React.FC = () => {
-	const [loggedIn, setLogin] = useState(false);
 	return (
 		<IonApp>
 			<IonReactRouter>
 				<IonRouterOutlet>
 					<Route path='/login' exact>
-						<Login loggedIn={loggedIn} onLogin={() => setLogin(true)} />
+						<Login />
 					</Route>
 					<Route path='/private'>
-						<AppTab loggedIn={loggedIn} />
+						<AppTab />
 					</Route>
 					<Redirect from='/' to='/private/home' exact />
 				</IonRouterOutlet>

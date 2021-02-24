@@ -11,12 +11,12 @@ const environment = {
 
 environment.baseUrl = 'https://investabook-server.herokuapp.com/';
 
-const getToken = async () => await Storage.get({ key: 'token' });
+export const getToken = async () => {
+	const data = await Storage.get({ key: 'token' });
+	return _.get(data, 'value', null);
+};
 
 export default axios.create({
 	baseURL: environment.baseUrl,
 	responseType: 'json',
-	headers: {
-		'x-access-token': getToken(),
-	},
 });

@@ -19,7 +19,11 @@ import React from 'react';
 import Medison from '../../src/assets/madison.jpg';
 import './Home.css';
 
+import PaymentsLogic from '../../src/Logics/Payments';
+import { useActions } from 'kea';
+
 const Home: any = () => {
+	const {} = useActions(PaymentsLogic);
 	return (
 		<IonPage style={{ backgroundColor: '#bae637' }}>
 			<IonHeader className='header'>
