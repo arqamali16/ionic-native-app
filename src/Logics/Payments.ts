@@ -1,8 +1,13 @@
 import { kea } from 'kea';
 
 import api, { getToken } from '../../src/Api';
+import LoginLogic from './Login';
 
 const logic = kea({
+	path: ['kea', 'payments'],
+
+	connect: { values: [LoginLogic, ['userDetails']] },
+
 	events: ({ actions }) => ({
 		afterMount: () => {
 			actions.getPayments();
@@ -11,20 +16,32 @@ const logic = kea({
 
 	actions: {
 		getPayments: true,
+		setPayments: (payments: any) => ({ payments }),
+
+		addPayment: (paymentDetails: any) => ({ paymentDetails }),
 	},
 
 	listeners: ({ actions }) => ({
 		getPayments: async () => {
 			const headers = { 'x-access-token': await getToken() };
 			const { data } = await api.get('/payment', { headers });
+			actions.setPayments(data);
+		},
+
+		addPayment: async (paymentDetails: any) => {
+			try {
+				const headers = { 'x-access-token': await getToken() };
+				const { data } = await api.post('/payment', { paymentDetails }, { headers });
+				actions.setPayments(data);
+			} catch (err) {}
 		},
 	}),
 
 	reducers: {
-		users: [
+		payments: [
 			[],
 			{
-				setUsers: (state: any, { users }: any) => users,
+				setPayments: (state: any, { payments }: any) => payments,
 			},
 		],
 	},

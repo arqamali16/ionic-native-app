@@ -1,4 +1,16 @@
-import { IonContent, IonPage, IonButton, IonRow, IonCol, IonLabel, IonInput, IonItem, IonList } from '@ionic/react';
+import {
+	IonContent,
+	IonPage,
+	IonButton,
+	IonRow,
+	IonCol,
+	IonLabel,
+	IonInput,
+	IonItem,
+	IonList,
+	IonAlert,
+	IonLoading,
+} from '@ionic/react';
 import React from 'react';
 import { Plugins } from '@capacitor/core';
 import './Home.css';
@@ -14,7 +26,7 @@ const { Browser } = Plugins;
 
 const Login: any = () => {
 	const { login } = useActions(LoginLogic);
-	const { isLoggedIn } = useValues(LoginLogic);
+	const { isLoggedIn, loginError, loginLoading } = useValues(LoginLogic);
 
 	return isLoggedIn ? (
 		<Redirect to='/private/home' />
@@ -28,9 +40,21 @@ const Login: any = () => {
 						{/* </IonAvatar> */}
 					</IonCol>
 				</IonRow>
-
 				<LoginForm onSubmit={(details: any) => login(details)} />
 			</IonContent>
+			{loginError && (
+				<IonAlert
+					isOpen={true}
+					// onDidDismiss={() => setShowAlert1(false)}
+					cssClass='my-custom-class'
+					header={'Alert'}
+					subHeader={'Login failed!'}
+					message={'Please recheck the user credentials'}
+					buttons={['OK']}
+				/>
+			)}
+
+			<IonLoading cssClass='my-custom-class' isOpen={loginLoading} message={'Please wait...'} />
 		</IonPage>
 	);
 };

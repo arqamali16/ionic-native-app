@@ -19,6 +19,7 @@
 		"ionicons": "^5.0.0",
 		"kea": "^2.3.2",
 		"lodash": "^4.17.21",
+		"moment": "^2.29.1",
 		"react": "^16.13.0",
 		"react-dom": "^16.13.0",
 		"react-native-check-app-install": "0.0.5",
