@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonRouterOutlet, IonApp } from '@ionic/react';
+import '../src/index.css';
 
 import { IonReactRouter } from '@ionic/react-router';
 import AppTab from './AppTabs';

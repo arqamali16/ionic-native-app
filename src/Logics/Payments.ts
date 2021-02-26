@@ -14,11 +14,17 @@ const logic = kea({
 		},
 	}),
 
+	defaults: {
+		paymentLoding: false,
+	},
+
 	actions: {
 		getPayments: true,
 		setPayments: (payments: any) => ({ payments }),
 
 		addPayment: (paymentDetails: any) => ({ paymentDetails }),
+
+		unsetLoding: true,
 	},
 
 	listeners: ({ actions }) => ({
@@ -28,16 +34,21 @@ const logic = kea({
 			actions.setPayments(data);
 		},
 
-		addPayment: async (paymentDetails: any) => {
+		addPayment: async ({ paymentDetails }: any) => {
+			console.log(paymentDetails);
 			try {
 				const headers = { 'x-access-token': await getToken() };
-				const { data } = await api.post('/payment', { paymentDetails }, { headers });
-				actions.setPayments(data);
+				const { data } = await api.post('/payment', { ...paymentDetails, approved: true }, { headers });
+				actions.unsetLoding(data);
 			} catch (err) {}
 		},
 	}),
 
 	reducers: {
+		paymentLoding: {
+			addPayment: () => true,
+			unsetLoding: () => false,
+		},
 		payments: [
 			[],
 			{

@@ -1,4 +1,14 @@
-import { IonLabel, IonInput, IonItem, IonList, IonSelect, IonSelectOption, IonTextarea, IonButton } from '@ionic/react';
+import {
+	IonLabel,
+	IonInput,
+	IonItem,
+	IonList,
+	IonSelect,
+	IonSelectOption,
+	IonTextarea,
+	IonButton,
+	IonDatetime,
+} from '@ionic/react';
 import React, { PureComponent } from 'react';
 
 interface IProps {
@@ -14,28 +24,37 @@ class PaymentForm extends PureComponent<IProps> {
 		description: '',
 	};
 
+	handleSubmit = () => {
+		this.props.onSubmit(this.state);
+		this.setState({
+			tenant_id: '',
+			paid_on: '',
+			amount: 0,
+			mode: '',
+			description: '',
+		});
+	};
+
 	render() {
 		return (
 			<IonList>
 				<IonItem>
 					<IonLabel>Tenant</IonLabel>
-					<IonSelect
-						placeholder='Select the Tenant'
+					<IonInput
 						value={this.state.tenant_id}
-						onIonChange={(e) => this.setState({ tenant: e.detail.value })}
-					>
-						<IonSelectOption value='Cash'>Cash</IonSelectOption>
-						<IonSelectOption value='Cheque'>Cheque</IonSelectOption>
-						<IonSelectOption value='Bank Transfer'>Bank Transfer</IonSelectOption>
-					</IonSelect>
+						onIonChange={(e) => this.setState({ tenant_id: e.detail.value })}
+						placeholder='0'
+						clearInput
+					></IonInput>
 				</IonItem>
 				<IonItem>
 					<IonLabel>Date of Payment</IonLabel>
-					<IonInput
+					<IonDatetime
+						// displayFormat='MMM DD YYYY'
+						placeholder='Select Date'
 						value={this.state.paid_on}
-						placeholder='Enter Input'
 						onIonChange={(e) => this.setState({ paid_on: e.detail.value })}
-					></IonInput>
+					></IonDatetime>
 				</IonItem>
 
 				<IonItem>
@@ -63,13 +82,7 @@ class PaymentForm extends PureComponent<IProps> {
 						onIonChange={(e) => this.setState({ description: e.detail.value })}
 					></IonTextarea>
 				</IonItem>
-				<br />
-				<IonButton
-					color='primary'
-					expand='block'
-					onClick={() => this.props.onSubmit(this.state)}
-					style={{ margin: '15px' }}
-				>
+				<IonButton color='primary' expand='block' onClick={this.handleSubmit} style={{ margin: '15px' }}>
 					Add
 				</IonButton>
 			</IonList>

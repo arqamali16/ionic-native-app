@@ -10,10 +10,11 @@ import {
 	IonList,
 	IonAlert,
 	IonLoading,
+	IonText,
+	IonGrid,
 } from '@ionic/react';
 import React from 'react';
 import { Plugins } from '@capacitor/core';
-import './Home.css';
 import { Redirect } from 'react-router-dom';
 import ShahadaLogo from '../assets/shahada-logo.svg';
 
@@ -31,17 +32,18 @@ const Login: any = () => {
 	return isLoggedIn ? (
 		<Redirect to='/private/home' />
 	) : (
-		<IonPage style={{ backgroundColor: '#bae637' }}>
-			<IonContent fullscreen>
-				<IonRow style={{ marginTop: '200px' }}>
-					<IonCol>
-						{/* <IonAvatar> */}
-						<img src={ShahadaLogo} style={{ maxWidth: '40%', marginLeft: '30%' }} />
-						{/* </IonAvatar> */}
+		<IonPage className='login-background'>
+			<IonGrid>
+				<IonRow style={{ marginTop: '150px', height: '70%' }}>
+					<IonCol size='12'>
+						<IonText color='secondary' className='brand-margin'>
+							<h1 className='brand-margin'>INVESTABOOK</h1>
+						</IonText>
 					</IonCol>
+
+					<LoginForm onSubmit={(details: any) => login(details)} />
 				</IonRow>
-				<LoginForm onSubmit={(details: any) => login(details)} />
-			</IonContent>
+			</IonGrid>
 			{loginError && (
 				<IonAlert
 					isOpen={true}

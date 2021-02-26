@@ -9,45 +9,43 @@ const LoginForm: any = (props: any) => {
 
 	return (
 		<React.Fragment>
-			<IonRow style={{ marginTop: '100px' }}>
-				<IonCol>
-					<IonList>
-						<IonItem>
-							<IonLabel position='stacked'>Username</IonLabel>
-							<IonInput
-								value={username}
-								inputmode='email'
-								required
-								onIonChange={({ detail }: any) => setUsername(detail.value)}
-							></IonInput>
-						</IonItem>
-						<IonItem>
-							<IonLabel position='stacked'>Password</IonLabel>
-							<IonInput
-								value={password}
-								type='password'
-								required
-								onIonChange={({ detail }: any) => setPassword(detail.value)}
-							></IonInput>
-						</IonItem>
-					</IonList>
-				</IonCol>
-			</IonRow>
-			<IonRow>
-				<IonCol>
-					<IonButton color='success' expand='block' onClick={() => onSubmit({ username, password })}>
-						Login
-					</IonButton>
-				</IonCol>
-			</IonRow>
-
-			<IonRow>
-				<IonCol>
-					<IonButton expand='block' fill='clear'>
-						Not Registered ?
-					</IonButton>
-				</IonCol>
-			</IonRow>
+			<IonCol size='12'>
+				<IonItem>
+					<IonInput
+						placeholder='Username'
+						value={username}
+						inputmode='email'
+						required
+						onIonChange={({ detail }: any) => setUsername(detail.value)}
+					></IonInput>
+				</IonItem>
+				<br />
+				<br />
+				<IonItem>
+					<IonInput
+						placeholder='Password'
+						value={password}
+						type='password'
+						required
+						onIonChange={({ detail }: any) => setPassword(detail.value)}
+					></IonInput>
+				</IonItem>
+				<br />
+				<br />
+				<br />
+				<IonButton
+					color='dark'
+					class='button-margin'
+					expand='block'
+					onClick={() => onSubmit({ username, password })}
+				>
+					Login
+				</IonButton>
+				<br />
+				<IonButton expand='block' fill='clear' color='dark'>
+					Not Registered ?
+				</IonButton>
+			</IonCol>
 		</React.Fragment>
 	);
 };

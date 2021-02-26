@@ -1,6 +1,20 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { IonRouterOutlet, IonTabBar, IonTabs, IonTabButton, IonIcon, IonLabel } from '@ionic/react';
+import {
+	IonRouterOutlet,
+	IonTabBar,
+	IonTabs,
+	IonTabButton,
+	IonIcon,
+	IonLabel,
+	IonMenu,
+	IonContent,
+	IonHeader,
+	IonItem,
+	IonList,
+	IonTitle,
+	IonToolbar,
+} from '@ionic/react';
 
 import Home from './pages/Home';
 import Wallet from './pages/Wallet';

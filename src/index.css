@@ -1,15 +1,10 @@
 .header {
 	font-size: 11px;
+	margin-top: 20px;
 	font-weight: 600;
 	letter-spacing: 0.05em;
 	margin-bottom: 1.25em;
 	text-transform: uppercase;
-	/* background-color: #bae637 !important; */
-	margin-top: 20px;
-}
-
-.toolbar {
-	/* background-color: #bae637 !important; */
 }
 
 .ion-tab-bar {
@@ -18,4 +13,30 @@
 	border-radius: 16px;
 	width: 92%;
 	margin: 0 auto;
+}
+
+.item-input {
+	border-radius: 12px;
+	margin-left: 40px;
+	margin-right: 40px;
+	background-color: black i !important;
+}
+
+.button-margin {
+	border-radius: 20px;
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	height: 40px;
+}
+
+.brand-margin {
+	text-align: center;
+	letter-spacing: 8px;
+	color: #131f23 !important;
+}
+
+.login-background {
+	background: #ffbea2 !important;
 }
