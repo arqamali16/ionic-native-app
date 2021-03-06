@@ -1,32 +1,25 @@
-import {
-	IonContent,
-	IonPage,
-	IonButton,
-	IonRow,
-	IonCol,
-	IonLabel,
-	IonInput,
-	IonItem,
-	IonList,
-	IonAlert,
-	IonLoading,
-	IonText,
-	IonGrid,
-} from '@ionic/react';
+import { IonPage, IonRow, IonCol, IonAlert, IonLoading, IonText, IonGrid } from '@ionic/react';
 import React from 'react';
-import { Plugins } from '@capacitor/core';
 import { Redirect } from 'react-router-dom';
-import ShahadaLogo from '../assets/shahada-logo.svg';
 
 import LoginForm from '../../src/components/LoginForm';
 
 import LoginLogic from '../../src/Logics/Login';
 import { useActions, useValues } from 'kea';
 
-const { Browser } = Plugins;
-
-const Login: any = () => {
+/**
+ * Function rendering Login Component
+ * @param props {Object}
+ */
+const Login: React.FC = () => {
+	/**
+	 * Actions resoponsible for storing login states
+	 */
 	const { login } = useActions(LoginLogic);
+
+	/**
+	 * Login states from redux
+	 */
 	const { isLoggedIn, loginError, loginLoading } = useValues(LoginLogic);
 
 	return isLoggedIn ? (
@@ -47,7 +40,6 @@ const Login: any = () => {
 			{loginError && (
 				<IonAlert
 					isOpen={true}
-					// onDidDismiss={() => setShowAlert1(false)}
 					cssClass='my-custom-class'
 					header={'Alert'}
 					subHeader={'Login failed!'}

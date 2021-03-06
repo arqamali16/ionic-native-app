@@ -3,7 +3,6 @@ import {
 	IonItem,
 	IonLabel,
 	IonList,
-	IonPage,
 	IonTitle,
 	IonAvatar,
 	IonHeader,
@@ -11,7 +10,6 @@ import {
 	IonToolbar,
 	IonCardTitle,
 	IonCardHeader,
-	IonCardContent,
 	IonCardSubtitle,
 	IonChip,
 	IonListHeader,
@@ -19,20 +17,16 @@ import {
 	IonRow,
 	IonCol,
 	IonIcon,
-	IonMenu,
 	IonButtons,
 	IonMenuButton,
-	IonButton,
 } from '@ionic/react';
 import React from 'react';
 import moment from 'moment';
 import { menuController } from '@ionic/core';
-import { checkmarkCircle, helpCircle, cardOutline } from 'ionicons/icons';
-
-import Medison from '../../src/assets/madison.jpg';
+import { cardOutline } from 'ionicons/icons';
 
 import PaymentsLogic from '../../src/Logics/Payments';
-import { useActions, useValues } from 'kea';
+import { useValues } from 'kea';
 import _ from 'lodash';
 
 const Home: any = () => {
@@ -52,6 +46,9 @@ const Home: any = () => {
 				</IonToolbar>
 			</IonHeader>
 			<IonContent fullscreen>
+				<IonCard>
+					<div>current rent:somthing</div>
+				</IonCard>
 				<IonCard>
 					<IonCardHeader>
 						<IonAvatar slot='start'>
