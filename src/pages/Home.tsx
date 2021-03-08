@@ -25,6 +25,7 @@ import moment from 'moment';
 import { menuController } from '@ionic/core';
 import { cardOutline } from 'ionicons/icons';
 
+import CurrentStatus from '../../src/components/CurrentStatus';
 import PaymentsLogic from '../../src/Logics/Payments';
 import { useValues } from 'kea';
 import _ from 'lodash';
@@ -46,9 +47,7 @@ const Home: any = () => {
 				</IonToolbar>
 			</IonHeader>
 			<IonContent fullscreen>
-				<IonCard>
-					<div>current rent:somthing</div>
-				</IonCard>
+				<CurrentStatus />
 				<IonCard>
 					<IonCardHeader>
 						<IonAvatar slot='start'>

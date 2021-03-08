@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "shahada-app",
+  "appId": "com.investabook",
+  "appName": "investabook",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",

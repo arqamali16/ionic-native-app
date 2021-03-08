@@ -40,3 +40,13 @@
 .login-background {
 	background: #ffbea2 !important;
 }
+
+.current-year-card {
+	background-color: #bae7ff;
+	border-color: 2px solid #69c0ff;
+}
+
+.next-year-card {
+	background-color: #ffccc7;
+	border-color: 2px solid #ff4d4f;
+}
