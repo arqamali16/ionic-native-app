@@ -1,4 +1,4 @@
-import { IonPage, IonRow, IonCol, IonAlert, IonLoading, IonText, IonGrid } from '@ionic/react';
+import { IonPage, IonRow, IonCol, IonAlert, IonLoading, IonText, IonGrid, IonIcon } from '@ionic/react';
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
@@ -6,6 +6,7 @@ import LoginForm from '../../src/components/LoginForm';
 
 import LoginLogic from '../../src/Logics/Login';
 import { useActions, useValues } from 'kea';
+import { book } from 'ionicons/icons';
 
 /**
  * Function rendering Login Component

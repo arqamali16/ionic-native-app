@@ -48,16 +48,6 @@ const Home: any = () => {
 			</IonHeader>
 			<IonContent fullscreen>
 				<CurrentStatus />
-				<IonCard>
-					<IonCardHeader>
-						<IonAvatar slot='start'>
-							<img src='https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y' />
-						</IonAvatar>
-						<IonCardSubtitle>Welcome</IonCardSubtitle>
-						<IonCardTitle>{userDetails.name}</IonCardTitle>
-						<IonCardSubtitle>{userDetails.email}</IonCardSubtitle>
-					</IonCardHeader>
-				</IonCard>
 				<IonList>
 					<IonListHeader>Recent Payments</IonListHeader>
 					{_.map(payments, (eachPayment) => (

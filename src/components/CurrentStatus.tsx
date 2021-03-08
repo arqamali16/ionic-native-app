@@ -2,13 +2,14 @@ import { IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonRow }
 import moment from 'moment';
 import React from 'react';
 
-const startDate = moment('08-03-2021', 'DD-MM-YYYY').format('MMMM Do YYYY');
-const startRent = 18500;
+const startDate = moment('08-03-2021', 'DD-MM-YYYY').format('YYYY-MM-DD');
+const startRent = 19420;
 
-console.log(moment().diff(startDate, 'years'));
+const currentRent = (startRent * 10 * moment().diff(startDate, 'years')) / 100 + startRent;
+const currentRentEnd = `Jan ${moment().add(1, 'year').format('YYYY')}`;
 
-const currentRent = (startRent * 10 * moment().diff(startDate, 'years')) / 100;
-const currentRentEnd = `31st Jan ${moment(startDate).add(1, 'year').format('YYYY')}`;
+const nextRent = (currentRent * 10) / 100 + currentRent;
+const nextRentStart = `Feb ${moment().add(1, 'year').format('YYYY')}`;
 
 const CurrentStatus = () => {
 	return (
@@ -20,7 +21,7 @@ const CurrentStatus = () => {
 						<IonCardTitle>&#8377; {currentRent}</IonCardTitle>
 					</IonCardHeader>
 					<IonCardHeader>
-						<IonCardSubtitle>Current Rent End:</IonCardSubtitle>
+						<IonCardSubtitle>End Date:</IonCardSubtitle>
 						<IonCardTitle>{currentRentEnd}</IonCardTitle>
 					</IonCardHeader>
 				</IonCard>
@@ -28,12 +29,12 @@ const CurrentStatus = () => {
 			<IonCol>
 				<IonCard className='next-year-card'>
 					<IonCardHeader>
-						<IonCardSubtitle>Current Rent:</IonCardSubtitle>
-						<IonCardTitle>&#8377; 18500</IonCardTitle>
+						<IonCardSubtitle>Next Rent:</IonCardSubtitle>
+						<IonCardTitle>&#8377; {nextRent}</IonCardTitle>
 					</IonCardHeader>
 					<IonCardHeader>
-						<IonCardSubtitle>Next Rent Start:</IonCardSubtitle>
-						<IonCardTitle>March</IonCardTitle>
+						<IonCardSubtitle>Start Date:</IonCardSubtitle>
+						<IonCardTitle>{nextRentStart}</IonCardTitle>
 					</IonCardHeader>
 				</IonCard>
 			</IonCol>
