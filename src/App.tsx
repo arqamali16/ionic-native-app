@@ -13,14 +13,7 @@ const App: React.FC = () => {
 	menuController.enable(true);
 	return (
 		<IonApp>
-			<IonMenu side='end' contentId='main-content' type='overlay'>
-				<IonHeader>
-					<IonToolbar color='secondary'>
-						<IonMenuButton slot='end' color='primary' />
-					</IonToolbar>
-				</IonHeader>
-				<div>Hi</div>
-			</IonMenu>
+			<IonMenu side='start' contentId='main-content' type='overlay'></IonMenu>
 			<IonPage id='main-content'>
 				<IonReactRouter>
 					<IonRouterOutlet>

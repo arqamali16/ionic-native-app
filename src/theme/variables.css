@@ -3,8 +3,8 @@ http://ionicframework.com/docs/theming/ */
 
 /** Ionic CSS Variables **/
 :root {
-	--ion-safe-area-top: 20px;
-	--ion-safe-area-bottom: 22px;
+	--ion-safe-area-top: 10%;
+	--ion-safe-area-bottom: 5%;
 
 	/** primary **/
 	--ion-color-primary: #3880ff;

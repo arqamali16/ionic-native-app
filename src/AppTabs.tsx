@@ -1,20 +1,6 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import {
-	IonRouterOutlet,
-	IonTabBar,
-	IonTabs,
-	IonTabButton,
-	IonIcon,
-	IonLabel,
-	IonMenu,
-	IonContent,
-	IonHeader,
-	IonItem,
-	IonList,
-	IonTitle,
-	IonToolbar,
-} from '@ionic/react';
+import { IonRouterOutlet, IonTabBar, IonTabs, IonTabButton, IonIcon, IonLabel } from '@ionic/react';
 
 import Home from './pages/Home';
 import Wallet from './pages/Wallet';
@@ -24,10 +10,9 @@ import AddPayment from './pages/AddPayment';
 import { walletOutline, cogOutline, homeOutline, addCircleOutline, documentTextOutline } from 'ionicons/icons';
 
 import LoginLogic from '../src/Logics/Login';
-import { useActions, useValues } from 'kea';
+import { useValues } from 'kea';
 
 const AppTab: any = () => {
-	const { login } = useActions(LoginLogic);
 	const { isLoggedIn } = useValues(LoginLogic);
 	return isLoggedIn ? (
 		<IonTabs>
@@ -35,29 +20,21 @@ const AppTab: any = () => {
 				<Route path='/private/home' exact={true}>
 					<Home />
 				</Route>
-				<Route path='/private/wallet' component={Wallet} exact={true}>
-					<Wallet />
-				</Route>
-				<Route path='/private/settings' component={Settings} exact={true}>
+				<Route path='/private/settings' exact={true}>
 					<Settings />
 				</Route>
-				<Route path='/private/activity' component={Activity} exact={true}>
+				<Route path='/private/activity' exact={true}>
 					<Activity />
 				</Route>
-				<Route path='/private/add-payment' component={AddPayment} exact={true}>
+				<Route path='/private/add-payment' exact={true}>
 					<AddPayment />
 				</Route>
 				<Redirect from='/' to='/private/home' exact />
 			</IonRouterOutlet>
-			<IonTabBar slot='bottom' translucent style={{ backgroundColor: 'black' }}>
+			<IonTabBar slot='bottom' translucent className='tab-bar-styling'>
 				<IonTabButton tab='home' href='/private/home'>
 					<IonIcon icon={homeOutline} />
 					<IonLabel>Home</IonLabel>
-				</IonTabButton>
-
-				<IonTabButton tab='wallet' href='/private/wallet'>
-					<IonIcon icon={walletOutline} />
-					<IonLabel>Shahada Wallet</IonLabel>
 				</IonTabButton>
 
 				<IonTabButton tab='add-payment' href='/private/add-payment'>

@@ -4,13 +4,9 @@ import {
 	IonLabel,
 	IonList,
 	IonTitle,
-	IonAvatar,
 	IonHeader,
 	IonContent,
 	IonToolbar,
-	IonCardTitle,
-	IonCardHeader,
-	IonCardSubtitle,
 	IonChip,
 	IonListHeader,
 	IonGrid,
@@ -19,6 +15,7 @@ import {
 	IonIcon,
 	IonButtons,
 	IonMenuButton,
+	IonLoading,
 } from '@ionic/react';
 import React from 'react';
 import moment from 'moment';
@@ -31,7 +28,7 @@ import { useValues } from 'kea';
 import _ from 'lodash';
 
 const Home: any = () => {
-	const { payments, userDetails } = useValues(PaymentsLogic);
+	const { payments, paymentLoding } = useValues(PaymentsLogic);
 	return (
 		<>
 			<IonHeader className='header'>
@@ -50,9 +47,9 @@ const Home: any = () => {
 				<CurrentStatus />
 				<IonList>
 					<IonListHeader>Recent Payments</IonListHeader>
-					{_.map(payments, (eachPayment) => (
-						<IonCard>
-							<IonItem>
+					{_.map(payments, (eachPayment, index) => (
+						<IonCard key={index}>
+							<IonItem key={index}>
 								<IonIcon
 									icon={cardOutline}
 									style={{
@@ -74,7 +71,7 @@ const Home: any = () => {
 											<IonCol>
 												<IonChip
 													color={eachPayment.approved ? 'success' : 'danger'}
-													style={{ float: 'left' }}
+													className='float-left'
 												>
 													<IonLabel>{eachPayment.approved ? 'PAID' : 'PENDING'}</IonLabel>
 												</IonChip>
@@ -87,6 +84,7 @@ const Home: any = () => {
 					))}
 				</IonList>
 			</IonContent>
+			<IonLoading cssClass='my-custom-class' isOpen={paymentLoding} message={'Please wait...'} />
 		</>
 	);
 };

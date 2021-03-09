@@ -18,11 +18,11 @@ const CurrentStatus = () => {
 				<IonCard className='current-year-card'>
 					<IonCardHeader>
 						<IonCardSubtitle>Current Rent:</IonCardSubtitle>
-						<IonCardTitle>&#8377; {currentRent}</IonCardTitle>
+						<IonCardTitle className='black-font'>&#8377; {currentRent}</IonCardTitle>
 					</IonCardHeader>
 					<IonCardHeader>
 						<IonCardSubtitle>End Date:</IonCardSubtitle>
-						<IonCardTitle>{currentRentEnd}</IonCardTitle>
+						<IonCardTitle className='black-font'>{currentRentEnd}</IonCardTitle>
 					</IonCardHeader>
 				</IonCard>
 			</IonCol>
@@ -30,11 +30,11 @@ const CurrentStatus = () => {
 				<IonCard className='next-year-card'>
 					<IonCardHeader>
 						<IonCardSubtitle>Next Rent:</IonCardSubtitle>
-						<IonCardTitle>&#8377; {nextRent}</IonCardTitle>
+						<IonCardTitle className='black-font'>&#8377; {nextRent}</IonCardTitle>
 					</IonCardHeader>
 					<IonCardHeader>
 						<IonCardSubtitle>Start Date:</IonCardSubtitle>
-						<IonCardTitle>{nextRentStart}</IonCardTitle>
+						<IonCardTitle className='black-font'>{nextRentStart}</IonCardTitle>
 					</IonCardHeader>
 				</IonCard>
 			</IonCol>
